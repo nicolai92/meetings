@@ -3,7 +3,7 @@
 //  Akai
 //
 //  Created by nicolai92 on 27.07.19.
-//  Copyright © 2019 nicolai92. All rights reserved.
+//  Copyright © 2020 nicolai92. All rights reserved.
 //
 
 import Cocoa
@@ -81,13 +81,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.isAccess = status
     }
 
-    func getSkypeLink(event: EKEvent) -> String? {
+    func getMeetingLink(event: EKEvent) -> String? {
         // Use filter instead of for-each loops to get meeting URL
         let links = event.notes?.getURLs()
         if links != nil {
-            let skypeURL = links!.filter{ $0.isSkypeMeeting() }
-            if skypeURL.first != nil {
+            // Build Skype link if available
+            let meetingURL = links!.filter{ $0.isSkypeMeeting() || $0.isMicrosoftTeamsMeeting() }
+            if meetingURL.first != nil && meetingURL.first!.isSkypeMeeting() {
                 let meetingURL = "lync://confjoin?url=" + (links?.first!.absoluteString)!
+                return meetingURL
+            }
+            else if meetingURL.first != nil && meetingURL.first!.isMicrosoftTeamsMeeting() {
+                let meetingURL = links?.first?.absoluteString;
                 return meetingURL
             }
         }
@@ -128,11 +133,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             var item = NSMenuItem()
 
             // Check, if action needs to be set (if Skype meeting available)
-            let skypeLink = getSkypeLink(event: event)
-            if skypeLink != nil {
+            let meetingLink = getMeetingLink(event: event)
+            if meetingLink != nil {
                 // Construct title and space
                 item = NSMenuItem(title: event.title, action: #selector(_openLink(_:)), keyEquivalent: "")
-                item.representedObject = skypeLink
+                item.representedObject = meetingLink
             }
             else {
                 // Construct title and space
@@ -141,7 +146,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // Add item
             menu.addItem(item)
             // Check, if meeting has a location and is not a Skype location
-            if event.location != nil && skypeLink == nil {
+            if event.location != nil && meetingLink == nil {
                 menu.addItem(NSMenuItem(title: event.location!, action: nil, keyEquivalent: ""))
             }
             if event.hasAttendees {
@@ -167,38 +172,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Add option to quit the application
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(_exit(_:)), keyEquivalent: ""))
-
-        return menu
-    }
-
-    func getSubmenu(event: EKEvent) -> NSMenu {
-        // Construct menu
-        let menu = NSMenu()
-
-        // Hols organizer attendees and notes of meeting
-        var infoText = ""
-
-        // Get organizer, if present
-        if event.organizer != nil {
-            infoText += "- " + (event.organizer?.name)! + "\n\n"
-        }
-        // Get attendaes if present
-        if event.hasAttendees {
-            for attendee in event.attendees! {
-                infoText += "- " + attendee.name! + "\n"
-            }
-        }
-        // Get notes of meeting
-        if event.hasNotes {
-            let mailDelimiter = ".........."
-            var token = event.notes!.components(separatedBy: mailDelimiter)
-            infoText += "\n" + token[0].wrap(columns: 80)
-        }
-        // Add information as item to the submenu
-        let item = NSMenuItem()
-        // NSMenu title does not support new lines (\n)
-        item.attributedTitle = NSAttributedString(string: infoText, attributes: nil)
-        menu.addItem(item)
 
         return menu
     }
@@ -265,32 +238,6 @@ extension String {
         }
         return urls
     }
-
-    func wrap(columns: Int = 80) -> String {
-        let scanner = Scanner(string: self)
-
-        var result = ""
-        var currentLineLength = 0
-
-        var word: NSString?
-        while scanner.scanUpToCharacters(from: NSMutableCharacterSet.whitespace() as CharacterSet, into: &word), let word = word {
-            let wordLength = word.length
-
-            if currentLineLength != 0 && currentLineLength + wordLength + 1 > columns {
-                // too long for current line, wrap
-                result += "\n"
-                currentLineLength = 0
-            }
-            // append the word
-            if currentLineLength != 0 {
-                result += " "
-                currentLineLength += 1
-            }
-            result += word as String
-            currentLineLength += wordLength
-        }
-        return result.trimmingCharacters(in: NSMutableCharacterSet.newline() as CharacterSet)
-    }
 }
 
 extension Date {
@@ -306,6 +253,16 @@ extension URL {
     func isSkypeMeeting() -> Bool {
         // Check for Skype link (not Skype Web App link)
         if self.absoluteString.range(of: "https://meet.") != nil && self.absoluteString.range(of: "sl=1") == nil  {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func isMicrosoftTeamsMeeting() -> Bool {
+        // Check for Microsoft Teams link
+        if self.absoluteString.range(of: "https://teams.") != nil {
             return true
         }
         else {
