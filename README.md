@@ -10,7 +10,7 @@ When working as a consultant, attending meetings is part of my daily job. I need
 
 ## Installation
 
-Download the app from the [release page](https://github.com/nicolai92/mac-akai/releases/tag/v1.1), unzip the file and copy it to the program's folder. You may find the app by it's name *Meetings* then.
+Download the app from the [release page](https://github.com/nicolai92/akai/releases/tag/1.1), unzip the file and copy it to the program's folder. You may find the app by it's name *Meetings* then.
 
 ## Usage
 
