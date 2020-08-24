@@ -2,6 +2,8 @@
 
 akai is a Mac app, that resides in the menu bar. Given access to the calendar, it shows todays events from the `Exchange` calendar in a dropdown menu with the option, to join an attached Microsoft Teams meeting or Skype meeting by simply clicking on it's name.
 
+![screenshot](./resources/screenshot.png)
+
 ## Motivation
 
 When working as a consultant, attending meetings is part of my daily job. I needed a simple app to quickly check, which meetings I have to join today. Further, a possibility to directly jump into the meetings, without having to open Microsoft Teams or Skype would save me a lot of time -- akai was born.
