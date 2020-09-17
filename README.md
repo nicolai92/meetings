@@ -14,9 +14,9 @@ Download the app from the [release page](https://github.com/nicolai92/akai/relea
 
 ## Usage
 
-When first launching the app, you may be asked to grant access to the calendar. This is necessary, to read today's events from the `Exchange` calendar. After that, the app resides in the menu bar and reveals the events by clicking on it's icon (which is a clock icon).
+When first launching the app, you may be asked to grant access to the calendar. This is necessary, to read today's events from the `Exchange` calendar. After that, the app resides in the menu bar and reveals the events by clicking on its icon (which is a clock icon).
 
-If the event has a Microsoft Teams or Skype meeting attached, the name of the event is clickable and let's the user directly join the meeting. If there's no meeting attached, then the name of the meeting location is shown.
+If the event has a Microsoft Teams or Skype meeting attached, the name of the event is clickable and lets the user directly join the meeting. If there's no meeting attached, then the name of the meeting location is shown.
 
 ## Contributing
 
