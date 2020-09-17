@@ -1,6 +1,6 @@
 # Join Microsoft Teams & Skype Meetings
 
-akai is a Mac app, that resides in the menu bar. Given access to the calendar, it shows todays events from the `Exchange` calendar in a dropdown menu with the option, to join an attached Microsoft Teams meeting or Skype meeting by simply clicking on it's name.
+akai is a Mac app, that resides in the menu bar. Given access to the calendar, it shows todays events from the `Exchange` calendar in a dropdown menu with the option, to join an attached Microsoft Teams meeting or Skype meeting by simply clicking on its name.
 
 ![screenshot](./resources/screenshot.png)
 
