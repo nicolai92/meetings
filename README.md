@@ -1,14 +1,10 @@
-# meetings.
-
 ![logo](./resources/meetingsdot-logo.png)
-
-**meetings.** is a Mac app, that resides in the menu bar.
 
 ![badge-license](https://img.shields.io/github/license/nicolai92/akai)
 ![badge-release](https://img.shields.io/github/v/release/nicolai92/akai)
 ![badge-downloads](https://img.shields.io/github/downloads/nicolai92/akai/latest/total?label=downloads)
 
-Given access to the calendar, it shows today's events from the `Exchange` calendar in a dropdown menu with the option, to join an attached Microsoft Teams meeting or Skype meeting by simply clicking on its name.
+MacOS app, that resides in the menu bar. Given access to the calendar, it shows today's events from the `Exchange` calendar in a dropdown menu with the option, to join an attached Microsoft Teams meeting or Skype meeting by simply clicking on its name.
 
 ![screenshot](./resources/screenshot.png)
 
