@@ -131,17 +131,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             menu.addItem(NSMenuItem(title: eventTime, action: nil, keyEquivalent: ""))
 
             var item = NSMenuItem()
-
             // Check, if action needs to be set (if Skype meeting available)
             let meetingLink = getMeetingLink(event: event)
             if meetingLink != nil {
-                // Construct title and space
-                item = NSMenuItem(title: event.title, action: #selector(_openLink(_:)), keyEquivalent: "")
-                item.representedObject = meetingLink
+                // If meeting is past due, strike through the meeting title
+                if (isPastDue(event: event.endDate)) {
+                    item = NSMenuItem(title: event.title, action: #selector(_openLink(_:)), keyEquivalent: "")
+                    item.attributedTitle = event.title.strikeThrough()
+                    item.representedObject = meetingLink
+                }
+                else {
+                    item = NSMenuItem(title: event.title, action: #selector(_openLink(_:)), keyEquivalent: "")
+                    item.attributedTitle = event.title.strikeThrough()
+                }
             }
             else {
                 // Construct title and space
-                item = NSMenuItem(title: event.title, action: nil, keyEquivalent: "")
+                item = NSMenuItem(title: event.title!, action: nil, keyEquivalent: "")
             }
             // Add item
             menu.addItem(item)
@@ -152,21 +158,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if event.hasAttendees {
                 let count = event.attendees!.count
                 var attendees = ""
-                if count > 1 {
-                    attendees = String(event.attendees!.count) + " Attendees"
-                } else {
-                    attendees = String(event.attendees!.count) + " Attendee"
-                }
+                attendees = count > 1 ? String(count) + " Attendees" : String(count) + " Attendee"
                 menu.addItem(NSMenuItem(title: attendees, action: nil, keyEquivalent: ""))
             }
 
             // Add seperator
             menu.addItem(NSMenuItem.separator())
-            // Set submenu for item with additional information about attendees and meeting text
-//            if event.hasNotes || event.hasAttendees {
-//                let itemMenu = getSubmenu(event: event)
-//                menu.setSubmenu(itemMenu, for: item)
-//            }
         }
 
         // Add option to quit the application
@@ -174,6 +171,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(_exit(_:)), keyEquivalent: ""))
 
         return menu
+    }
+    
+    /*
+        Check, whether meeting is in past
+     */
+    func isPastDue(event:Date) -> Bool {
+        return Date() > event ? true : false
     }
 
     /*
@@ -238,6 +242,15 @@ extension String {
         }
         return urls
     }
+    
+    func strikeThrough() -> NSAttributedString {
+        let attributeString =  NSMutableAttributedString(string: self)
+        attributeString.addAttribute(
+            NSAttributedString.Key.strikethroughStyle,
+               value: NSUnderlineStyle.single.rawValue,
+                   range:NSMakeRange(0,attributeString.length))
+        return attributeString
+    }
 }
 
 extension Date {
@@ -251,22 +264,17 @@ extension Date {
 
 extension URL {
     func isSkypeMeeting() -> Bool {
-        // Check for Skype link (not Skype Web App link)
-        if self.absoluteString.range(of: "https://meet.") != nil && self.absoluteString.range(of: "sl=1") == nil  {
-            return true
-        }
-        else {
-            return false
-        }
+        // Check for Skype link / Skip Skype Web App link
+        return self.absoluteString.range(of: "https://meet.") != nil && self.absoluteString.range(of: "sl=1") == nil ? true : false
     }
     
     func isMicrosoftTeamsMeeting() -> Bool {
         // Check for Microsoft Teams link
-        if self.absoluteString.range(of: "https://teams.") != nil {
-            return true
-        }
-        else {
-            return false
-        }
+        return self.absoluteString.range(of: "https://teams.") != nil ? true : false
+    }
+    
+    func isZoomMeeting() -> Bool {
+        // Check for Zoom link
+        return self.absoluteString.range(of: ".zoom.us") != nil ? true : false
     }
 }
