@@ -1,10 +1,10 @@
-![logo](./resources/meetingsdot-logo.png)
+# Meetings
 
 ![badge-license](https://img.shields.io/github/license/nicolai92/akai)
 ![badge-release](https://img.shields.io/github/v/release/nicolai92/akai)
 ![badge-downloads](https://img.shields.io/github/downloads/nicolai92/akai/latest/total?label=downloads)
 
-MacOS app, that resides in the menu bar. Given access to the calendar, it shows today's events from the `Exchange` calendar in a dropdown menu with the option, to join an attached Microsoft Teams meeting or Skype meeting by simply clicking on its name.
+**Meetings** is a macOS app, that sits in the menubar and helps in always attending meetings on time.
 
 ![screenshot](./resources/screenshot.png)
 
@@ -14,13 +14,13 @@ When working as a consultant, attending meetings is part of my daily job. I need
 
 ## Installation
 
-Download the app from the [release page](https://github.com/nicolai92/akai/releases/tag/1.1), unzip the file and copy it to the program's folder. You may find the app by its name *Meetings* then.
+Download the app from the [release page](https://github.com/nicolai92/akai/releases/tag/v1.1), unzip the file and copy it to the program's folder. You may find the app by its name **Meetings** then.
 
 ## Usage
 
-When first launching the app, you may be asked to grant access to the calendar. This is necessary, to read today's events from the `Exchange` calendar. After that, the app resides in the menu bar and reveals the events by clicking on its icon (which is a clock icon).
+When launching the app for the first time, access to the calendar is requested to read the meetings from the Exchange calendar. Next, the app sits in the menubar and shows today's events as shown in the screenshot.
 
-If the event has a Microsoft Teams or Skype meeting attached, the name of the event is clickable and lets the user directly join the meeting. If there's no meeting attached, then the name of the meeting location is shown.
+If the meeting has a Microsoft Teams, Skype or Zoom Meeting attached, then simply click on the name to join. Else, the location where the meeting takes place is shown.
 
 ## Contributing
 
