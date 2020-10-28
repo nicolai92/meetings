@@ -10,11 +10,11 @@
 
 ## Motivation
 
-When working as a consultant, attending meetings is part of my daily job. I needed a simple app to quickly check, which meetings I have to join today. Further, a possibility to directly jump into the meetings, without having to open Microsoft Teams or Skype would save me a lot of time -- thus, this app was born.
+When working as a consultant, attending meetings is part of my daily job. I needed a simple app to quickly check, which meetings I have to join today. Further, a possibility to directly jump into the meetings, without having to open Microsoft Teams or Skype etc. would save me a lot of time -- thus, this app was born.
 
 ## Installation
 
-Download the app from the [release page](https://github.com/nicolai92/akai/releases/tag/v1.1), unzip the file and copy it to the program's folder. You may find the app by its name **Meetings** then.
+[**Download**](https://github.com/nicolai92/akai/releases/tag/v1.1), unzip and move `Meetings.app` to the `/Applications/` directory.
 
 ## Usage
 
