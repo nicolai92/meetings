@@ -1,20 +1,20 @@
-# Meetings
+# Meeting
 
-![badge-license](https://img.shields.io/github/license/nicolai92/akai)
-![badge-release](https://img.shields.io/github/v/release/nicolai92/akai)
-![badge-downloads](https://img.shields.io/github/downloads/nicolai92/akai/latest/total?label=downloads)
+![badge-license](https://img.shields.io/github/license/nicolai92/meeting)
+![badge-release](https://img.shields.io/github/v/release/nicolai92/meeting)
+![badge-downloads](https://img.shields.io/github/downloads/nicolai92/meeting/latest/total?label=downloads)
 
-**Meetings** is a macOS app, that sits in the menubar and helps in always attending meetings on time.
+**Meeting** is a macOS app, that sits in the menubar and helps in always attending meetings on time.
 
 ![screenshot](./resources/screenshot.png)
 
 ## Motivation
 
-When working as a consultant, attending meetings is part of my daily job. I needed a simple app to quickly check, which meetings I have to join today. Further, a possibility to directly jump into the meetings, without having to open Microsoft Teams or Skype etc. would save me a lot of time -- thus, this app was born.
+When working as a consultant, attending meetings is part of my daily job. I needed a simple app to quickly check, which meetings I have to join today. Further, a possibility to directly jump into the meetings, without having to open Microsoft Teams or Skype etc. would save me a lot of time. Thus, this app was born.
 
 ## Installation
 
-[**Download**](https://github.com/nicolai92/akai/releases/tag/v1.1), unzip and move `Meetings.app` to the `/Applications/` directory.
+[**Download**](https://github.com/nicolai92/akai/releases/tag/v1.1), unzip and move `Meeting.app` to the `/Applications/` directory.
 
 ## Usage
 
