@@ -1,12 +1,12 @@
 <img src="resources/icon.png" align="right" height="75"/>
 
-# Meeting
+# Meetings
 
 ![badge-license](https://img.shields.io/github/license/nicolai92/meeting)
 ![badge-release](https://img.shields.io/github/v/release/nicolai92/meeting)
 ![badge-downloads](https://img.shields.io/github/downloads/nicolai92/meeting/latest/total?label=downloads)
 
-**Meeting** is a macOS app, that sits in the menubar and helps in always attending meetings on time.
+**Meetings** is a macOS app, that sits in the menubar and helps in always attending meetings on time.
 
 ![screenshot](./resources/screenshot.png)
 
@@ -16,7 +16,7 @@ When working as a consultant, attending meetings is part of my daily job. I need
 
 ## Installation
 
-[**Download**](https://github.com/nicolai92/akai/releases/tag/v1.1), unzip and move `Meeting.app` to the `/Applications/` directory.
+[**Download**](https://github.com/nicolai92/meetings/releases/tag/v1.1), unzip and move `Meetings.app` to the `/Applications/` directory.
 
 ## Usage
 
