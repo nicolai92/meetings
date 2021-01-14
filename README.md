@@ -1,3 +1,5 @@
+<img src="resources/icon.png" align="right" height="75"/>
+
 # Meeting
 
 ![badge-license](https://img.shields.io/github/license/nicolai92/meeting)
@@ -10,7 +12,7 @@
 
 ## Motivation
 
-When working as a consultant, attending meetings is part of my daily job. I needed a simple app to quickly check, which meetings I have to join today. Further, a possibility to directly jump into the meetings, without having to open Microsoft Teams or Skype etc. would save me a lot of time. Thus, this app was born.
+When working as a consultant, attending meetings is part of my daily job. I needed a simple app to quickly check, which meetings I have to join today. Further, a possibility to directly jump into the meetings, without having to open Microsoft Teams or Skype etc. would save me a lot of time. Thus, this app was created.
 
 ## Installation
 
