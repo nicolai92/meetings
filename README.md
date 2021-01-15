@@ -1,4 +1,4 @@
-<img src="resources/icon.png" align="right" height="75"/>
+<img src="resources/app-icon.png" align="right" height="75"/>
 
 # Meetings
 
